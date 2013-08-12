@@ -15,17 +15,6 @@ namespace BoardGameManager.Web.Controllers
 
         public ActionResult Index()
         {
-            using (var boardGameContext = new BoardGameContext())
-            {
-                var boardGame = new BoardGame()
-                {
-                    Name = "Test"
-                };
-
-                boardGameContext.BoardGames.Add(boardGame);
-                boardGameContext.SaveChanges();
-            }
-
             return View();
         }
 

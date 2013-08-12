@@ -4,6 +4,11 @@ namespace BoardGameManager.EntityFramework.Entities
 {
     public class Person
     {
+        public Person(string name)
+        {
+            this.Name = Name;
+        }
+
         public int PersonId { get; set; }
 
         public string Name { get; set; }

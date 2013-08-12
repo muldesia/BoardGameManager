@@ -226,6 +226,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BoardGameManager.Application\BoardGameManager.Application.csproj">
+      <Project>{B3791299-D33A-43CD-8FA4-A14A8F5DFF51}</Project>
+      <Name>BoardGameManager.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BoardGameManager.EntityFramework\BoardGameManager.EntityFramework.csproj">
       <Project>{44353646-2D00-401D-9CA1-E54E230D54EE}</Project>
       <Name>BoardGameManager.EntityFramework</Name>

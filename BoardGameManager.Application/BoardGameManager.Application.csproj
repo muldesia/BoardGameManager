@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{44353646-2D00-401D-9CA1-E54E230D54EE}</ProjectGuid>
+    <ProjectGuid>{B3791299-D33A-43CD-8FA4-A14A8F5DFF51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BoardGameManager.EntityFramework</RootNamespace>
-    <AssemblyName>BoardGameManager.EntityFramework</AssemblyName>
+    <RootNamespace>BoardGameManager.Application</RootNamespace>
+    <AssemblyName>BoardGameManager.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,12 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbContexts\BoardGameContext.cs" />
-    <Compile Include="Entities\BoardGame.cs" />
-    <Compile Include="Entities\Person.cs" />
-    <Compile Include="Mappings\BoardGameMappings.cs" />
-    <Compile Include="Mappings\PersonMappings.cs" />
+    <Compile Include="DatabaseInitializers\DropCreateBoardGameDatabaseInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BoardGameManager.EntityFramework\BoardGameManager.EntityFramework.csproj">
+      <Project>{44353646-2D00-401D-9CA1-E54E230D54EE}</Project>
+      <Name>BoardGameManager.EntityFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
