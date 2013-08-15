@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -229,6 +235,10 @@
     <ProjectReference Include="..\BoardGameManager.Application\BoardGameManager.Application.csproj">
       <Project>{B3791299-D33A-43CD-8FA4-A14A8F5DFF51}</Project>
       <Name>BoardGameManager.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BoardGameManager.Domain\BoardGameManager.Domain.csproj">
+      <Project>{DC9739FD-90F6-4C31-93CC-5BA5191FF1A6}</Project>
+      <Name>BoardGameManager.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\BoardGameManager.EntityFramework\BoardGameManager.EntityFramework.csproj">
       <Project>{44353646-2D00-401D-9CA1-E54E230D54EE}</Project>

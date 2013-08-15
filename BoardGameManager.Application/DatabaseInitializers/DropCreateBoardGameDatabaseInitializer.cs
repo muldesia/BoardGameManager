@@ -4,11 +4,11 @@ using BoardGameManager.EntityFramework.Entities;
 
 namespace BoardGameManager.Application.DatabaseInitializers
 {
-    public class DropCreateBoardGameDatabaseInitializer : DropCreateDatabaseAlways<BoardGameContext>
+    public class DropCreateBoardGameDatabaseInitializer : DropCreateDatabaseAlways<BoardGameDbContext>
     {
-        protected override void Seed(BoardGameContext context)
+        protected override void Seed(BoardGameDbContext dbContext)
         {
-            var boardGamesToAdd = new BoardGame[]
+            var boardGamesToAdd = new[]
             {
                 new BoardGame("A Game Of Thrones: The Board Game", 3, 5, 120, 180, "http://boardgamegeek.com/boardgame/6472/a-game-of-thrones"),
                 new BoardGame("Dominion", 2, 4, 30, 30, "http://boardgamegeek.com/boardgame/36218/dominion"),
@@ -88,10 +88,10 @@ namespace BoardGameManager.Application.DatabaseInitializers
             foreach (var boardGame in boardGamesToAdd)
             {
                 boardGame.Owners.Add(markOMahoney);
-                context.BoardGames.Add(boardGame);
+                dbContext.BoardGames.Add(boardGame);
             }
 
-            base.Seed(context);
+            base.Seed(dbContext);
         }
     }
 }

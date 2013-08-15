@@ -4,6 +4,10 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using BoardGameManager.Application.DatabaseInitializers;
+using BoardGameManager.Domain.Installers;
+using BoardGameManager.EntityFramework.Installers;
+using Castle.Facilities.TypedFactory;
+using Castle.Windsor;
 
 namespace BoardGameManager.Web
 {
@@ -12,6 +16,8 @@ namespace BoardGameManager.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private WindsorContainer container;
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -20,6 +26,10 @@ namespace BoardGameManager.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            container = new WindsorContainer();
+            container.Install(new EntityFrameworkInstaller());
+            container.Install(new DomainInstaller());
 
             Database.SetInitializer(new DropCreateBoardGameDatabaseInitializer());
         }

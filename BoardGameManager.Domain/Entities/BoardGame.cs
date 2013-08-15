@@ -1,25 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Security.Policy;
 
-namespace BoardGameManager.EntityFramework.Entities
+namespace BoardGameManager.Domain.Entities
 {
     public class BoardGame
     {
         public BoardGame(string name, int minPlayers, int maxPlayers, int? minMinutesToPlay = null,
-            int? maxMinutesToPlay = null, string boardGameGeekUrl = null) : this()
+            int? maxMinutesToPlay = null, string boardGameGeekUrl = null)
         {
-            this.Name = name;
-            this.MinPlayers = minPlayers;
-            this.MaxPlayers = maxPlayers;
-            this.MinMinutesToPlay = minMinutesToPlay;
-            this.MaxMinutesToPlay = maxMinutesToPlay;
-            this.BoardGameGeekUrl = boardGameGeekUrl;
-        }
+            Name = name;
+            MinPlayers = minPlayers;
+            MaxPlayers = maxPlayers;
+            MinMinutesToPlay = minMinutesToPlay;
+            MaxMinutesToPlay = maxMinutesToPlay;
+            BoardGameGeekUrl = boardGameGeekUrl;
 
-        public BoardGame()
-        {
-            this.Owners = new Collection<Person>();
+            Owners = new Collection<Person>();
         }
 
         public int BoardGameId { get; set; }
