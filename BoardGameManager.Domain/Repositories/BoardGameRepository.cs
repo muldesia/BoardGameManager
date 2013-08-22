@@ -19,7 +19,6 @@ namespace BoardGameManager.Domain.Repositories
         public ICollection<BoardGame> ListAll()
         {
             var listOfBoardGameDbEntities = _boardGameDbContext.BoardGames.ToList();
-            Mapper.CreateMap<EntityFramework.Entities.BoardGame, BoardGame>();
             return Mapper.Map<ICollection<BoardGame>>(listOfBoardGameDbEntities);
         }
     }

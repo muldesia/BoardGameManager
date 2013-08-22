@@ -54,6 +54,7 @@
     <Compile Include="Entities\BoardGame.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Factories\BoardGameFactory.cs" />
+    <Compile Include="MapperProfiles\EntityFrameworkToDomainProfile.cs" />
     <Compile Include="Repositories\BoardGameRepository.cs" />
     <Compile Include="Factories\IBoardGameFactory.cs" />
     <Compile Include="Factories\IPersonFactory.cs" />
@@ -75,6 +76,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

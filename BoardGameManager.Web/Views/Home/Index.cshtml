@@ -1,7 +1,14 @@
 ﻿@model dynamic
 
-@{
-    ViewBag.Title = "title";
-}
+<h2>Board Game Manager</h2>
 
-<h2>title</h2>
+<div id="outerDiv">
+    <div id="boardGameList">
+        <ul data-bind="foreach: gamesList">
+            <li data-bind="text: Name, event: { mouseover: $parent.selectGame }"/>
+        </ul>
+    </div>
+    <div id="selectedBoardGameDetails" data-bind="with: selectedGame">
+        <span data-bind="text: Name"></span>
+    </div>
+</div>

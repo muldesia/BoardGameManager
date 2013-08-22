@@ -6,6 +6,7 @@ using System.Web.Routing;
 using BoardGameManager.Application.DatabaseInitializers;
 using BoardGameManager.Domain.Installers;
 using BoardGameManager.EntityFramework.Installers;
+using BoardGameManager.Web.App_Start;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
 
@@ -16,7 +17,7 @@ namespace BoardGameManager.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        private WindsorContainer container;
+        private IWindsorContainer _container;
 
         protected void Application_Start()
         {
@@ -25,11 +26,15 @@ namespace BoardGameManager.Web
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FormatterConfig.Configure(GlobalConfiguration.Configuration);
+
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            container = new WindsorContainer();
-            container.Install(new EntityFrameworkInstaller());
-            container.Install(new DomainInstaller());
+            WindsorConfig.Configure(out _container);
+            //_container.Install(new EntityFrameworkInstaller());
+            //_container.Install(new DomainInstaller());
+
+            AutoMapperConfig.Configure();
 
             Database.SetInitializer(new DropCreateBoardGameDatabaseInitializer());
         }

@@ -8,7 +8,11 @@ namespace BoardGameManager.Web
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            bundles.UseCdn = true;
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery",
+                        "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+                        .Include(
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
@@ -23,7 +27,20 @@ namespace BoardGameManager.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+                        "~/Scripts/knockout-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/amplify").Include(
+                        "~/Scripts/amplify*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/require.js").Include(
+                        "~/Scripts/require.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/app").IncludeDirectory(
+                        "~/Scripts/app", "*.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/main").Include(
+                        "~/Scripts/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -38,6 +55,12 @@ namespace BoardGameManager.Web
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/normalize").Include(
+                "~/Content/normalize.css"));
+
+            bundles.Add(new StyleBundle("~/Content/main.css").Include(
+                "~/Content/main.css"));
         }
     }
 }

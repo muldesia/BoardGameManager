@@ -9,6 +9,11 @@ namespace BoardGameManager.EntityFramework.Entities
             this.Name = Name;
         }
 
+        protected Person()
+        {
+            
+        }
+
         public int PersonId { get; set; }
 
         public string Name { get; set; }
