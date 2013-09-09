@@ -1,11 +1,16 @@
-﻿define('bootstrapper',
-    [],
-    function() {
-        var run = function() {
-            alert('hello!');
-        };
+﻿var boardGameManager = boardGameManager || {};
 
-        return {
-            run: run
-        };
-    });
+boardGameManager.bootstrapper = (function() {
+    var run = function() {
+        boardGameManager.presenter.showWaitingIndicator();
+        $.when(boardGameManager.dataprimer.fetchData())
+            .done(binder.bind())
+            .always(function() {
+                boardGameManager.presenter.hideWaitingIndicator();
+            });
+    };
+
+    return {
+        run: run
+    };
+})();

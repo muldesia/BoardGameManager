@@ -1,14 +1,21 @@
 ﻿@model dynamic
 
-<h2>Board Game Manager</h2>
-
-<div id="outerDiv">
-    <div id="boardGameList">
+<header>
+    <h2>Board Game Manager</h2>
+</header>
+<nav></nav>
+<article>
+    <section id="boardGameList">
+        <div class="waitingIndicator" />
         <ul data-bind="foreach: gamesList">
-            <li data-bind="text: Name, event: { mouseover: $parent.selectGame }"/>
+            <li data-bind="text: Name, event: { mouseover: $parent.selectGame }"/> //text: BoardGame().name
         </ul>
-    </div>
-    <div id="selectedBoardGameDetails" data-bind="with: selectedGame">
+    </section>
+</article>
+<aside>
+    <section id="selectedBoardGameDetails" data-bind="with: selectedGame">
+        <div class="waitingIndicator" />
         <span data-bind="text: Name"></span>
-    </div>
-</div>
+    </section>
+</aside>
+<footer></footer>

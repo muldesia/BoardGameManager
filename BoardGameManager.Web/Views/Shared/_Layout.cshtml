@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using BoardGameManager.Web.Constants
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -12,11 +13,11 @@
     
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    @Styles.Render("~/Content/normalize");
-    @Styles.Render("~/Content/main.css");
+    @Styles.Render(BundlePaths.Css.Normalize)
+    @Styles.Render(BundlePaths.Css.Main)
 
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render(BundlePaths.JavaScript.Modernizer)
+    @Scripts.Render(BundlePaths.JavaScript.Knockout)
 </head>
 <body>
     <!--[if lt IE 7]>
@@ -25,10 +26,11 @@
     
     @RenderBody()
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/amplify")
-    @Scripts.Render("~/bundles/require.js")
-    @Scripts.Render("~/bundles/app")
-    @Scripts.Render("~/bundles/main")
+    @Scripts.Render(BundlePaths.JavaScript.JQuery)
+    @Scripts.Render(BundlePaths.JavaScript.Amplify)
+    @Scripts.Render(BundlePaths.JavaScript.NetEyeWaitIndicator)
+    @Scripts.Render(BundlePaths.JavaScript.Underscore)
+    @Scripts.Render(BundlePaths.JavaScript.CustomAppModules)
+    @Scripts.Render(BundlePaths.JavaScript.Main)
 </body>
 </html>

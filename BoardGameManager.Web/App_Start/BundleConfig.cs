@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Optimization;
+using BoardGameManager.Web.Constants;
 
 namespace BoardGameManager.Web
 {
@@ -10,39 +11,42 @@ namespace BoardGameManager.Web
         {
             bundles.UseCdn = true;
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery",
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.JQuery,
                         "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
                         .Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.JQueryUi).Include(
                         "~/Scripts/jquery-ui-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.JQueryValidation).Include(
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Modernizer).Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Knockout).Include(
                         "~/Scripts/knockout-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/amplify").Include(
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Amplify).Include(
                         "~/Scripts/amplify*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/require.js").Include(
-                        "~/Scripts/require.js"));
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.NetEyeWaitIndicator).Include(
+                        "~/Scripts/jquery.activity-indicator-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/app").IncludeDirectory(
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Underscore).Include(
+                        "~/Scripts/underscore*"));
+
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.CustomAppModules).IncludeDirectory(
                         "~/Scripts/app", "*.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/main").Include(
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Main).Include(
                         "~/Scripts/main.js"));
 
-            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+            bundles.Add(new StyleBundle(BundlePaths.Css.JQueryUi).Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",
                         "~/Content/themes/base/jquery.ui.selectable.css",
@@ -56,10 +60,10 @@ namespace BoardGameManager.Web
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
-            bundles.Add(new StyleBundle("~/Content/normalize").Include(
+            bundles.Add(new StyleBundle(BundlePaths.Css.Normalize).Include(
                 "~/Content/normalize.css"));
 
-            bundles.Add(new StyleBundle("~/Content/main.css").Include(
+            bundles.Add(new StyleBundle(BundlePaths.Css.Main).Include(
                 "~/Content/main.css"));
         }
     }

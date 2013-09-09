@@ -18,7 +18,6 @@ namespace BoardGameManager.Application.DatabaseInitializers
                 new BoardGame("Twilight Imperium : 3rd Edition", 3, 6, 180, 240, "http://boardgamegeek.com/boardgame/12493/twilight-imperium-third-edition"),
                 new BoardGame("Twilight Imperium : Shattered Empire", 3, 8, 180, 240, "http://boardgamegeek.com/boardgameexpansion/22821/twilight-imperium-third-edition-shattered-empire"),
                 new BoardGame("Descent : Journeys In The Dark", 2, 5, 120, 240, "http://boardgamegeek.com/boardgame/17226/descent-journeys-in-the-dark"),
-                new BoardGame("Pandemic", 2, 4, 45, 45, "http://boardgamegeek.com/boardgame/30549/pandemic"),
                 new BoardGame("Lost Cities", 2, 2, 20, 40, "http://boardgamegeek.com/boardgame/50/lost-cities"),
                 new BoardGame("San Juan", 2, 4, 45, 60, "http://boardgamegeek.com/boardgame/8217/san-juan"),
                 new BoardGame("Shadows Over Camelot", 3, 7, 60, 80, "http://boardgamegeek.com/boardgame/15062/shadows-over-camelot"),
@@ -78,7 +77,7 @@ namespace BoardGameManager.Application.DatabaseInitializers
                 new BoardGame("Android Netrunner", 2, 2, 30, 60, "http://boardgamegeek.com/boardgame/124742/android-netrunner"), 
                 new BoardGame("Eclipse", 2, 6, 60, 180, "http://boardgamegeek.com/boardgame/72125/eclipse"), 
                 new BoardGame("Mage Knight", 1, 4, 60, 240, "http://boardgamegeek.com/boardgame/96848/mage-knight-board-game"),
-                new BoardGame("Starship Merchants", 2, 3, 90, null, "http://boardgamegeek.com/boardgame/114912/starship-merchants"), 
+                new BoardGame("Starship Merchants", 2, 4, 90, null, "http://boardgamegeek.com/boardgame/114912/starship-merchants"), 
                 new BoardGame("The Resistance: Avalon", 5, 10, 30, 30, "http://boardgamegeek.com/boardgame/128882/the-resistance-avalon"),
                 new BoardGame("Dominant Species", 2, 6, 180, null, "http://boardgamegeek.com/boardgame/62219/dominant-species")
             };
