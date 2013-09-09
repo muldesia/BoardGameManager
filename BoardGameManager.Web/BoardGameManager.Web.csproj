@@ -243,6 +243,7 @@
     <Content Include="Scripts\app\model.boardgame.js" />
     <Content Include="Scripts\app\modelmapper.js" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Scripts\app\utils.js" />
     <Content Include="Scripts\app\viewmodel.boardgames.js" />
     <Content Include="Scripts\GPL-LICENSE.txt" />
     <Content Include="Scripts\jquery-2.0.3.js" />

@@ -8,7 +8,7 @@ boardGameManager.modelMapper = (function () {
             item.dirtyFlat().reset();
             return item;
         }
-    }
+    };
 
     return {
        boardGames: boardGames

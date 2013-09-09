@@ -1,9 +1,9 @@
 ﻿var boardGameManager = boardGameManager || {};
 
 boardGameManager.binder = (function() {
-    var ids = config.viewIds,
+    var //ids = config.viewIds,
         bind = function() {
-            ko.applyBindings(boardGameManager.viewmodel.boardGames, getView(ids.boardGames));
+            ko.applyBindings(boardGameManager.viewModel.boardGames);//, getView(ids.boardGames));
         },            
         getView = function(viewName) {
             return $(viewName).get(0);

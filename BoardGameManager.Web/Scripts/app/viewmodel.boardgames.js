@@ -1,13 +1,15 @@
 ﻿var boardGameManager = boardGameManager || {};
-boardGameManager.viewmodel = boardGameManager.viewmodel || {};
+boardGameManager.viewModel = boardGameManager.viewModel || {};
     
-boardGameManager.viewmodel.boardGames = (function () {
-    var refresh = function (callback) {
-        $.when(boardGameManager.dataContext.boardGames.getData())
-            .always(callback());
-    };
+boardGameManager.viewModel.boardGames = (function () {
+    var boardGames = ko.observableArray(),
+        refresh = function (callback) {
+            $.when(boardGameManager.dataContext.boardGames.getData(boardGames));
+                //.always(callback());
+        };
 
     return {
-        refresh: refresh
+        refresh: refresh,
+        boardGames: boardGames
     };
 })();

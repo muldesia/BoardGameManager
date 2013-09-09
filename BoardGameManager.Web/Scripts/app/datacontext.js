@@ -1,30 +1,30 @@
 ﻿var boardGameManager = boardGameManager || {};
 
 boardGameManager.dataContext = (function() {
-    var EntitySet = function(getFunction) {
+    var EntitySet = function (getFunction, mapper) {
         var items = {},
 
-            itemsToArray = function(items, observableArray) {
+            itemsToArray = function (items, observableArray) {
                 if (!observableArray) return;
 
-                var underlyingArray = utils.mapMemoToArray(items);
+                var underlyingArray = boardGameManager.utils.mapMemoToArray(items);
 
                 observableArray(underlyingArray);
             },
 
-            getData = function(options) {
-                return $.Deferred(function(def) {
+            getData = function (options) {
+                return $.Deferred(function (def) {
                     var results = options && options.results,
                         getFunctionOverride = options && options.getFunction,
                         getFunction = getFunctionOverride || getFunction;
 
                     if (!items) {
                         getFunction({
-                            success: function(dtoList) {
-                                items = mapToContext(dtoList, items, results); //,map
+                            success: function (dtoList) {
+                                items = mapToContext(dtoList, items, results, mapper);
                                 def.resolve(dtoList);
                             },
-                            error: function(response) {
+                            error: function (response) {
 
                             }
                         });
@@ -46,11 +46,15 @@ boardGameManager.dataContext = (function() {
                 return items;
             };
 
-          },
+        return {
+            getData: getData
+        };
 
-        boardGames = new EntitySet(boardGameManager.dataService.boardGames.getData, boardGameManager.modelMapper.boardGames);
+    },
+
+        BoardGames = new EntitySet(boardGameManager.dataService.boardGames.getBoardGames, boardGameManager.modelMapper.boardGames);
 
     return {
-        getData: getData
+        boardGames: BoardGames
     };
 })();

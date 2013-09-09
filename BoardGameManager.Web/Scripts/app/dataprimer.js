@@ -4,11 +4,11 @@ boardGameManager.dataPrimer = (function() {
     var fetchData = function() {
         return $.Deferred(function(def) {
             var data = {
-                boardGames: ko.observable()
+                boardGames: ko.observableArray()
             };
 
             $.when(
-                //dataContext.boardGames.getData({ results: data.boardGames })
+                boardGameManager.dataContext.boardGames.getData({ results: data.boardGames })
             ).fail(function() { def.reject(); })
              .done(function() { def.resolve(); });
         }).promise();
