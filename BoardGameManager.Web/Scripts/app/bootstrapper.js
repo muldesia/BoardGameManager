@@ -3,14 +3,13 @@
 boardGameManager.bootstrapper = (function() {
     var run = function() {
         boardGameManager.presenter.showWaitingIndicator();
-        $.when(boardGameManager.dataPrimer.fetchData())
-            .done(boardGameManager.viewModel.boardGames.refresh())
-            .done(boardGameManager.binder.bind())
+        $.when(boardGameManager.viewModel.boardGames.refresh())
             .always(function() {
+                boardGameManager.binder.bind();
                 boardGameManager.presenter.hideWaitingIndicator();
             });
     };
-
+    
     return {
         run: run
     };

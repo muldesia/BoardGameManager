@@ -2,7 +2,7 @@
 
 boardGameManager.presenter = (function() {
     var showWaitingIndicator = function () {
-        $('.waitingIndicator').activity();
+        $('.waitingIndicator').activity(true);
     };
 
     var hideWaitingIndicator = function () {

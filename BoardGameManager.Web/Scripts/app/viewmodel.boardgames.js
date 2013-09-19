@@ -3,13 +3,14 @@ boardGameManager.viewModel = boardGameManager.viewModel || {};
     
 boardGameManager.viewModel.boardGames = (function () {
     var boardGames = ko.observableArray(),
+        selectedGame = ko.observable(),
         refresh = function (callback) {
-            $.when(boardGameManager.dataContext.boardGames.getData(boardGames));
-                //.always(callback());
+            return boardGameManager.dataContext.boardGames.getData({ results: boardGames });
         };
 
     return {
-        refresh: refresh,
-        boardGames: boardGames
+        boardGames: boardGames,
+        selectedGame : selectedGame,
+        refresh: refresh
     };
 })();

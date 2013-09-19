@@ -153,6 +153,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="App_Start\WindsorConfig.cs" />
     <Compile Include="Constants\BundlePaths.cs" />
+    <Compile Include="Controllers\BoardGamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -239,7 +240,6 @@
     <Content Include="Scripts\app\bootstrapper.js" />
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\app\datacontext.js" />
-    <Content Include="Scripts\app\dataprimer.js" />
     <Content Include="Scripts\app\model.boardgame.js" />
     <Content Include="Scripts\app\modelmapper.js" />
     <Content Include="Scripts\app\presenter.js" />

@@ -2,14 +2,20 @@
 
 boardGameManager.modelMapper = (function () {
     var boardGames = {
-        fromDto: function (dto, item) {
-            item = item || new boardGameManager.model.BoardGames().id(dto.id);
-            item.name(dto.name);
-            item.dirtyFlat().reset();
+        fromDto: function (dto) {
+            var item = new boardGameManager.model.BoardGame();
+                item.id(dto.boardGameId);
+                item.name(dto.name);
+                //item.dirtyFlag().reset();
             return item;
+        },
+
+        getDtoId: function (dto) {
+            return dto.boardGameId;
         }
     };
 
+  
     return {
        boardGames: boardGames
     };

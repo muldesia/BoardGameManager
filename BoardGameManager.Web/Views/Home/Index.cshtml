@@ -8,14 +8,14 @@
     <section id="boardGameList">
         <div class="waitingIndicator" />
         <ul data-bind="foreach: boardGames">
-            <li data-bind="text: Name, event: { mouseover: $parent.selectGame }"/> <!--text: BoardGame().name-->
+            <li data-bind="text: name, event: { mouseover: $parent.selectGame }"/>
         </ul>
     </section>
 </article>
 <aside>
     <section id="selectedBoardGameDetails" data-bind="with: selectedGame">
         <div class="waitingIndicator" />
-        <span data-bind="text: Name"></span>
+        <span data-bind="text: name"></span>
     </section>
 </aside>
 <footer></footer>

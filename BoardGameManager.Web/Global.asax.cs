@@ -23,10 +23,10 @@ namespace BoardGameManager.Web
         {
             AreaRegistration.RegisterAllAreas();
 
+            FormatterConfig.Configure(GlobalConfiguration.Configuration);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            FormatterConfig.Configure(GlobalConfiguration.Configuration);
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 

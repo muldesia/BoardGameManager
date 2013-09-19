@@ -4,9 +4,9 @@ boardGameManager.dataService = boardGameManager.dataService || {};
 boardGameManager.dataService.boardGames = (function() {
     var init = function() {
             //Resource Id, Request Type and Settings
-            amplify.request.define('boardGames', 'ajax', {
+            amplify.request.define('boardGameList', 'ajax', {
                 //url: '/api/boardGames',
-                url: '/Home/BoardGamesList',
+                url: '/api/BoardGames',
                 dataType: 'json',
                 type: 'GET'
                 //cache: true
@@ -17,7 +17,7 @@ boardGameManager.dataService.boardGames = (function() {
         
         getBoardGames = function(callbacks) {
             return amplify.request({
-                resourceId: 'boardGames',
+                resourceId: 'boardGameList',
                 success: callbacks.success,
                 error: callbacks.error
             });

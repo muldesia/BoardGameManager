@@ -51,7 +51,6 @@ namespace BoardGameManager.Web
                         "~/Scripts/app/datacontext.js",
                         "~/Scripts/app/binder.js",
                         "~/Scripts/app/presenter.js",
-                        "~/Scripts/app/dataprimer.js",
                         "~/Scripts/app/bootstrapper.js"));
 
             bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Main).Include(
