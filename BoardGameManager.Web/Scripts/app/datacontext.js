@@ -24,6 +24,7 @@ boardGameManager.dataContext = (function() {
                                 def.resolve(dtoList);
                             },
                             error: function (response) {
+                                console.error('Unable to load data into dataContext.');
                                 def.reject(); // ?
                             }
                         });

@@ -1,4 +1,5 @@
-﻿using BoardGameManager.Domain.Repositories;
+﻿using AutoMapper;
+using BoardGameManager.Domain.Repositories;
 using BoardGameManager.Web.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,11 +26,9 @@ namespace BoardGameManager.Web.Controllers
         {
             var boardGames = _boardGameRepositroy.ListAll();
 
-            var viewModel = boardGames.Select(x => new BoardGameIdAndNameViewModel(x.BoardGameId, x.Name));
+            var viewModel = Mapper.Map<ICollection<BoardGameViewModel>>(boardGames);
 
-            //var viewModel = new BoardGameIdAndNameViewModel(1, "Test");
-
-            return Request.CreateResponse<IEnumerable<BoardGameIdAndNameViewModel>>(HttpStatusCode.OK, viewModel);
+            return Request.CreateResponse<IEnumerable<BoardGameViewModel>>(HttpStatusCode.OK, viewModel);
         }
     }
 }

@@ -5,7 +5,6 @@ boardGameManager.dataService.boardGames = (function() {
     var init = function() {
             //Resource Id, Request Type and Settings
             amplify.request.define('boardGameList', 'ajax', {
-                //url: '/api/boardGames',
                 url: '/api/BoardGames',
                 dataType: 'json',
                 type: 'GET'

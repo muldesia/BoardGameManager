@@ -125,10 +125,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\BoardGameManager.Web\Scripts\app\viewmodel.boardgames.js">
+      <Link>Scripts\source\viewmodel.boardgames.js</Link>
+    </Content>
     <Content Include="App.config" />
+    <Content Include="Content\qunit-1.12.0.css" />
+    <Content Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery.activity-indicator-1.0.0.js" />
+    <Content Include="Scripts\knockout-2.3.0.debug.js" />
+    <Content Include="Scripts\knockout-2.3.0.js" />
+    <Content Include="Scripts\sinon-1.7.3.js" />
+    <Content Include="Scripts\sinon-qunit-1.0.0.js" />
+    <Content Include="Scripts\tests\app\viewmodel.boardgames.js" />
+    <Content Include="Scripts\qunit-1.12.0.js" />
+    <Content Include="TestRunners\viewmodel.boardgames.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Scripts\jquery-2.0.3.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoardGameManager.Web\BoardGameManager.Web.csproj">

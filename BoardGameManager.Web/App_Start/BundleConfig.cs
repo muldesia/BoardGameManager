@@ -41,16 +41,12 @@ namespace BoardGameManager.Web
                         "~/Scripts/underscore*"));
 
             bundles.Add(new ScriptBundle(BundlePaths.JavaScript.CustomAppModules).Include(
-                        //"~/Scripts/app", "*.js")
                         "~/Scripts/app/model.boardgame.js",
-                        "~/Scripts/app/utils.js",
-                        "~/Scripts/app/config.js",
                         "~/Scripts/app/dataservice.boardgames.js",
                         "~/Scripts/app/modelmapper.js",
                         "~/Scripts/app/viewmodel.boardgames.js",
                         "~/Scripts/app/datacontext.js",
                         "~/Scripts/app/binder.js",
-                        "~/Scripts/app/presenter.js",
                         "~/Scripts/app/bootstrapper.js"));
 
             bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Main).Include(

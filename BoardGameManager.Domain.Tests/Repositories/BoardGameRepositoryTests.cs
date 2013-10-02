@@ -7,16 +7,27 @@ using FizzWare.NBuilder;
 using FluentAssertions;
 using NUnit.Framework;
 using BoardGame = BoardGameManager.EntityFramework.Entities.BoardGame;
+using AutoMapper;
+using BoardGameManager.Domain.MapperProfiles;
 
 namespace BoardGameManager.Domain.Tests.Repositories
 {
     [TestFixture]
     public class BoardGameRepositoryTests
     {
-        
         [TestFixture]
         public class ListAll
         {
+            [TestFixtureSetUp]
+            public void SetFixtureSetUp()
+            {
+                Mapper.Initialize(x =>
+                {
+                    x.AddProfile<EntityFrameworkToDomainProfile>();
+                });
+
+            }
+
             [Test]
             public void Returns_Empty_List_When_No_Board_Games_In_Db()
             {

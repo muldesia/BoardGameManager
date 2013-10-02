@@ -2,12 +2,21 @@
 
 boardGameManager.bootstrapper = (function() {
     var run = function() {
-        boardGameManager.presenter.showWaitingIndicator();
+        console.debug('Running bootstrapper.');
+        boardGameManager.viewModel.boardGames.showWaitingIndicator();
+        boardGameManager.binder.bind();
+        console.debug('Attempting to refresh the board games view model.');
         $.when(boardGameManager.viewModel.boardGames.refresh())
+            .done(function () {
+                console.debug('Loaded board games into view model.');
+                boardGameManager.viewModel.boardGames.selectFirstGame();
+            })
             .always(function() {
-                boardGameManager.binder.bind();
-                boardGameManager.presenter.hideWaitingIndicator();
+                console.debug('Hiding wait indicator.');
+                boardGameManager.viewModel.boardGames.hideWaitingIndicator();
             });
+
+        console.debug('Bootstrapper finished running.');
     };
     
     return {

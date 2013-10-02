@@ -92,12 +92,44 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+html {
+    background-color: #eae6cd;
+}
+
+body {
+    width: 95%;
+}
+
+article {
+    float: left;
+    width: 50%;
+}
+
+article section#boardGameList {
+}
+
+article section#boardGameList ul {
+    height: 500px;
+    overflow: auto;
+}
+
+article section#boardGameList ul li {
+    list-style-type: none;
+    background-color: #f7f1d8;
+}
+
+article section#boardGameList ul li:nth-child(odd){
+    background-color: #f8f0cf;
+}
+
+article section#boardGameList ul li:hover {
+    background-color: #efd96c;
+}
 
 
-
-
-
-
+aside {
+    float: left;
+}
 
 
 

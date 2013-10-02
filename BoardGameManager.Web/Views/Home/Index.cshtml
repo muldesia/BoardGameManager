@@ -6,16 +6,38 @@
 <nav></nav>
 <article>
     <section id="boardGameList">
-        <div class="waitingIndicator" />
-        <ul data-bind="foreach: boardGames">
-            <li data-bind="text: name, event: { mouseover: $parent.selectGame }"/>
-        </ul>
+        <div id="boardGameListWaitingIndicator"></div>
+        <div id="listControl">
+            <ul data-bind="foreach: boardGames">
+                <li data-bind="text: name, event: { mouseover: $parent.selectGame }"/>
+            </ul>
+        </div>
     </section>
 </article>
 <aside>
     <section id="selectedBoardGameDetails" data-bind="with: selectedGame">
-        <div class="waitingIndicator" />
-        <span data-bind="text: name"></span>
+        <table>
+            <tr>
+                <td>Name</td><td data-bind="text: name"></td>
+            </tr>
+            <tr>
+                <td>Min Players</td><td data-bind="text: minPlayers"></td>
+            </tr>
+            <tr>
+                <td>Max Players</td><td data-bind="text: maxPlayers"></td>
+            </tr>
+            <tr>
+                <td>Min Minutes To Play</td><td data-bind="text: minMinutesToPlay"></td>
+            </tr>
+            <tr>
+                <td>Max Minutes To Play</td><td data-bind="text: maxMinutesToPlay"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a data-bind="attr: { href: boardGameGeekUrl }" target="_blank">Review</a>
+                </td>
+            </tr>
+        </table>
     </section>
 </aside>
 <footer></footer>
