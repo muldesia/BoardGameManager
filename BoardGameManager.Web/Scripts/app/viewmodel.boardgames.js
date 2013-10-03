@@ -5,11 +5,11 @@ boardGameManager.viewModel.boardGames = (function () {
     var boardGames = ko.observableArray(),
         selectedGame = ko.observable(),
         
-        refresh = function (callback) {
+        refresh = function () {
             return boardGameManager.dataContext.boardGames.getData({ results: boardGames });
         },
         
-        selectGame = function (data, Event) {
+        selectGame = function (data) {
             selectedGame(data);
         },
         
