@@ -5,13 +5,17 @@
 </header>
 <nav></nav>
 <article>
-    <section id="boardGameList">
-        <div id="boardGameListWaitingIndicator"></div>
-        <div id="listControl">
+    <section>
+        <div id="boardGameList">
             <ul data-bind="foreach: boardGames">
                 <li data-bind="text: name, event: { mouseover: $parent.selectGame }"/>
             </ul>
+            <!--<select multiple="multiple" data-bind="foreach: boardGames">
+                <option data-bind="text: name, event: { mouseover: $parent.selectGame }" />
+            </select>-->
         </div>
+        <span id="retryLoadBoardGamesMessage">Unable to load board games.  Please <a href="" id="retryLoadBoardGamesLink">retry</a>.</span>
+        <div id="boardGameListWaitingIndicator"></div>
     </section>
 </article>
 <aside>

@@ -1,4 +1,6 @@
-﻿var boardGameManager = boardGameManager || {};
+﻿"use strict";
+
+var boardGameManager = boardGameManager || {};
 boardGameManager.model = boardGameManager.model || {};
 
 boardGameManager.model.BoardGame = function () {

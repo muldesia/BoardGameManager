@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>QUnit All Tests</title>
+        <link rel="stylesheet" href="../Content/qunit-1.12.0.css" />
+        <link rel="stylesheet" href="../Content/qunit-composite.css" />
+
+        <!-- 3rd party dependencies -->
+        <script src="../Scripts/qunit-1.12.0.js"></script>
+        <script src="../Scripts/qunit-composite.js"></script>
+        
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+
+        <script>
+            QUnit.testSuites("All board game manager tests", [
+                "bootstrapper.html",
+                "viewmodel.boardgames.html"
+            ]);
+        </script>
+
+    </body>
+</html>

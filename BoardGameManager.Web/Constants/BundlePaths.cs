@@ -16,12 +16,15 @@ namespace BoardGameManager.Web.Constants
             public const string Main = "~/bundles/main";
             public const string NetEyeWaitIndicator = "~/bundles/neteye";
             public const string Underscore = "~/bundles/bundles/underscore";
+            public const string JQueryJScrollPane = "~/bundles/bundles/jqueryjscrollpane";
+            public const string JQueryMouseWheel = "~/bundles/bundles/jquerymousewheel";
         }
 
         public static class Css
         {
             public const string JQueryUi = "~/Content/themes/base/css";
             public const string Normalize = "~/Content/normalize";
+            public const string JQueryJScrollPane = "~/Content/jqueryjscrollpane";
             public const string Main = "~/Content/main.css";
         }
     }

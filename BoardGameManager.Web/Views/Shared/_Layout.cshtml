@@ -14,6 +14,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     @Styles.Render(BundlePaths.Css.Normalize)
+    @Styles.Render(BundlePaths.Css.JQueryUi)
+    @Styles.Render(BundlePaths.Css.JQueryJScrollPane)
     @Styles.Render(BundlePaths.Css.Main)
 
     @Scripts.Render(BundlePaths.JavaScript.Modernizer)
@@ -27,9 +29,12 @@
     @RenderBody()
 
     @Scripts.Render(BundlePaths.JavaScript.JQuery)
+    @Scripts.Render(BundlePaths.JavaScript.JQueryUi)
     @Scripts.Render(BundlePaths.JavaScript.Amplify)
     @Scripts.Render(BundlePaths.JavaScript.NetEyeWaitIndicator)
     @Scripts.Render(BundlePaths.JavaScript.Underscore)
+    @Scripts.Render(BundlePaths.JavaScript.JQueryMouseWheel)
+    @Scripts.Render(BundlePaths.JavaScript.JQueryJScrollPane)
     @Scripts.Render(BundlePaths.JavaScript.CustomAppModules)
     @Scripts.Render(BundlePaths.JavaScript.Main)
 </body>

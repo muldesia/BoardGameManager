@@ -1,4 +1,6 @@
-﻿var boardGameManager = boardGameManager || {};
+﻿"use strict";
+
+var boardGameManager = boardGameManager || {};
 boardGameManager.dataService = boardGameManager.dataService || {};
 
 boardGameManager.dataService.boardGames = (function() {

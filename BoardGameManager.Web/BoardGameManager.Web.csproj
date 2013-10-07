@@ -168,6 +168,7 @@
     <Compile Include="Windsor\WindsorWebApiControllerActivator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\jquery.jscrollpane.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -252,6 +253,8 @@
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\jquery.activity-indicator-1.0.0.js" />
     <Content Include="Scripts\jquery.activity-indicator-1.0.0.min.js" />
+    <Content Include="Scripts\jquery.jscrollpane.min.js" />
+    <Content Include="Scripts\jquery.mousewheel.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

@@ -49,8 +49,15 @@ namespace BoardGameManager.Web
                         "~/Scripts/app/binder.js",
                         "~/Scripts/app/bootstrapper.js"));
 
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.JQueryJScrollPane).Include(
+                        "~/Scripts/jquery.jscrollpane.min.js"));
+
+            bundles.Add(new ScriptBundle(BundlePaths.JavaScript.JQueryMouseWheel).Include(
+            "~/Scripts/jquery.mousewheel.js"));
+
             bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Main).Include(
-                        "~/Scripts/main.js"));
+            "~/Scripts/main.js"));
+
 
             bundles.Add(new StyleBundle(BundlePaths.Css.JQueryUi).Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -68,6 +75,9 @@ namespace BoardGameManager.Web
 
             bundles.Add(new StyleBundle(BundlePaths.Css.Normalize).Include(
                 "~/Content/normalize.css"));
+
+            bundles.Add(new StyleBundle(BundlePaths.Css.JQueryJScrollPane).Include(
+                "~/Content/jquery.jscrollpane.css"));
 
             bundles.Add(new StyleBundle(BundlePaths.Css.Main).Include(
                 "~/Content/main.css"));

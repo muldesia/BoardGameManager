@@ -1,4 +1,6 @@
-﻿var boardGameManager = boardGameManager || {};
+﻿"use strict";
+
+var boardGameManager = boardGameManager || {};
 
 boardGameManager.modelMapper = (function () {
     var boardGames = {
