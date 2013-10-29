@@ -4,8 +4,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using BoardGameManager.Application.DatabaseInitializers;
-using BoardGameManager.Domain.Installers;
-using BoardGameManager.EntityFramework.Installers;
 using BoardGameManager.Web.App_Start;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
@@ -31,8 +29,6 @@ namespace BoardGameManager.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             WindsorConfig.Configure(out _container);
-            //_container.Install(new EntityFrameworkInstaller());
-            //_container.Install(new DomainInstaller());
 
             AutoMapperConfig.Configure();
 

@@ -7,7 +7,9 @@ boardGameManager.dataContext = (function() {
         var items = [],
             _getFunction = getFunction,
             itemsToArray = function (items, observableArray) {
-                if (!observableArray) return;
+                if (!observableArray) {
+                    throw 'itemsToArray() must be passed an observableArray as its second parameter.';
+                }
 
                 ko.utils.arrayPushAll(observableArray(), items);
                 observableArray.valueHasMutated();
@@ -17,10 +19,10 @@ boardGameManager.dataContext = (function() {
                 return $.Deferred(function (def) {
                     var results = options && options.results,
                         getFunctionOverride = options && options.getFunction,
-                        getFunction = getFunctionOverride || getFunction;
+                        getFunction = getFunctionOverride || _getFunction;
 
                     if (!items.length) {
-                        _getFunction({
+                        getFunction({
                             success: function (dtoList) {
                                 items = mapToContext(dtoList, items, results, mapper);
                                 def.resolve(dtoList);
@@ -39,14 +41,19 @@ boardGameManager.dataContext = (function() {
 
             mapToContext = function (dtoList, items, results, mapper) {
                 items = _.map(dtoList, function (dto) {
-                             return mapper.fromDto(dto);
-                            }, []);
+                    return mapper.fromDto(dto);
+                }, []);
                 itemsToArray(items, results);
                 return items;
+            },
+
+            clearCache = function () {
+                items = [];
             };
 
             return {
-                getData: getData
+                getData: getData,
+                clearCache: clearCache
             };
 
         },

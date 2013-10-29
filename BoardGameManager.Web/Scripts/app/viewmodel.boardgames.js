@@ -61,13 +61,13 @@ boardGameManager.viewModel.boardGames = (function () {
             $('#selectedBoardGameDetails').hide(500);
         },
 
-        hideRetryLoadBoardGamesMessage = function () {
-            $('#retryLoadBoardGamesMessage').hide(500);
-        },
-
         showRetryLoadBoardGamesMessage = function () {
             $('#retryLoadBoardGamesMessage').show(500);
-        };
+        },
+
+        hideRetryLoadBoardGamesMessage = function () {
+            $('#retryLoadBoardGamesMessage').hide(500);
+        }
 
     return {
         boardGames: boardGames,

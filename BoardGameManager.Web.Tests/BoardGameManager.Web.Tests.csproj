@@ -33,12 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
-    </Reference>
     <Reference Include="FizzWare.NBuilder">
       <HintPath>..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
     </Reference>
@@ -128,6 +122,12 @@
     <Content Include="..\BoardGameManager.Web\Scripts\app\bootstrapper.js">
       <Link>Scripts\source\bootstrapper.js</Link>
     </Content>
+    <Content Include="..\BoardGameManager.Web\Scripts\app\datacontext.js">
+      <Link>Scripts\source\datacontext.js</Link>
+    </Content>
+    <Content Include="..\BoardGameManager.Web\Scripts\app\modelmapper.js">
+      <Link>Scripts\source\modelmapper.js</Link>
+    </Content>
     <Content Include="..\BoardGameManager.Web\Scripts\app\viewmodel.boardgames.js">
       <Link>Scripts\source\viewmodel.boardgames.js</Link>
     </Content>
@@ -150,15 +150,22 @@
     <Content Include="Scripts\sinon-1.7.3.js" />
     <Content Include="Scripts\sinon-qunit-1.0.0.js" />
     <Content Include="Scripts\tests\app\bootstrapper.js" />
+    <Content Include="Scripts\tests\app\datacontext.js" />
+    <Content Include="Scripts\tests\app\modelmapper.js" />
     <Content Include="Scripts\tests\app\viewmodel.boardgames.js" />
     <Content Include="Scripts\qunit-1.12.0.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
     <Content Include="TestRunners\AllTests.html" />
     <Content Include="TestRunners\bootstrapper.html" />
+    <Content Include="TestRunners\datacontext.html" />
+    <Content Include="TestRunners\modelmapper.html" />
     <Content Include="TestRunners\viewmodel.boardgames.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
+    <None Include="Scripts\underscore.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoardGameManager.Web\BoardGameManager.Web.csproj">

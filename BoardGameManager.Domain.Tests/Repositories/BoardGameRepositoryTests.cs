@@ -48,7 +48,12 @@ namespace BoardGameManager.Domain.Tests.Repositories
             {
                 //Arrange
                 var fakeDbContext = new BoardGameFakeDbContext();
-                Builder<BoardGame>.CreateListOfSize(2).Build().ForEach(x => fakeDbContext.BoardGames.Add(x));
+                var boardGameList = Builder<BoardGame>.CreateListOfSize(2).Build();
+                boardGameList[1].GameType = EntityFramework.Enums.GameType.Expansion;
+                foreach (var boardGame in boardGameList)
+                {
+                    fakeDbContext.BoardGames.Add(boardGame);
+                }
 
                 var unitOfWork = new UnitOfWork<BoardGameFakeDbContext>(fakeDbContext);
                 var boardGameRepository = new BoardGameRepository(unitOfWork);
@@ -58,8 +63,9 @@ namespace BoardGameManager.Domain.Tests.Repositories
 
                 //Assert
                 boardGamesListed.Should().HaveCount(2);
-                boardGamesListed.ElementAt(0).ShouldHave().AllProperties().EqualTo(fakeDbContext.BoardGames.ElementAt(0));
-                boardGamesListed.ElementAt(1).ShouldHave().AllProperties().EqualTo(fakeDbContext.BoardGames.ElementAt(1));
+                boardGamesListed.ElementAt(0).ShouldHave().AllPropertiesBut(x => x.GameType).EqualTo(fakeDbContext.BoardGames.ElementAt(0));
+                boardGamesListed.ElementAt(1).ShouldHave().AllPropertiesBut(x => x.GameType).EqualTo(fakeDbContext.BoardGames.ElementAt(1));
+                boardGamesListed.ElementAt(1).GameType.ShouldBeEquivalentTo<GameType>(GameType.Expansion);
             }
         }
     }

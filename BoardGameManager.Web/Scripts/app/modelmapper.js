@@ -8,11 +8,14 @@ boardGameManager.modelMapper = (function () {
             var item = new boardGameManager.model.BoardGame();
                 item.id(dto.boardGameId);
                 item.name(dto.name);
+                item.gameType(dto.gameType);
+                item.boardGameGeekReviewUri(dto.boardGameGeekReviewUri);
+                item.boardGameGeekSmallImageUri(dto.boardGameGeekSmallImageUri);
+                item.boardGameGeekMediumImageUri(dto.boardGameGeekMediumImageUri);
                 item.minPlayers(dto.minPlayers);
                 item.maxPlayers(dto.maxPlayers);
                 item.minMinutesToPlay(dto.minMinutesToPlay);
                 item.maxMinutesToPlay(dto.maxMinutesToPlay);
-                item.boardGameGeekUrl(dto.boardGameGeekUrl);
 
                 //item.dirtyFlag().reset();
             return item;
@@ -22,7 +25,6 @@ boardGameManager.modelMapper = (function () {
             return dto.boardGameId;
         }
     };
-
   
     return {
        boardGames: boardGames

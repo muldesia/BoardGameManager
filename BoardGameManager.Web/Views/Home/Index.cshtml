@@ -8,7 +8,10 @@
     <section>
         <div id="boardGameList">
             <ul data-bind="foreach: boardGames">
-                <li data-bind="text: name, event: { mouseover: $parent.selectGame }"/>
+                <li data-bind="event: { mouseover: $parent.selectGame }">
+                    <img data-bind="attr: { src: boardGameGeekSmallImageUri }" />
+                    <span data-bind="text: name" />
+                </li>
             </ul>
             <!--<select multiple="multiple" data-bind="foreach: boardGames">
                 <option data-bind="text: name, event: { mouseover: $parent.selectGame }" />
@@ -21,6 +24,9 @@
 <aside>
     <section id="selectedBoardGameDetails" data-bind="with: selectedGame">
         <table>
+            <tr>
+                <td><img data-bind="attr: { src: boardGameGeekMediumImageUri }" /></td>
+            </tr>
             <tr>
                 <td>Name</td><td data-bind="text: name"></td>
             </tr>
@@ -38,7 +44,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <a data-bind="attr: { href: boardGameGeekUrl }" target="_blank">Review</a>
+                    <a data-bind="attr: { href: boardGameGeekReviewUri }" target="_blank">Review</a>
                 </td>
             </tr>
         </table>

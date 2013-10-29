@@ -33,17 +33,15 @@
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Core">
-      <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,14 +52,17 @@
     <Compile Include="Entities\BoardGame.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Factories\BoardGameFactory.cs" />
+    <Compile Include="GameType.cs" />
     <Compile Include="MapperProfiles\EntityFrameworkToDomainProfile.cs" />
     <Compile Include="Repositories\BoardGameRepository.cs" />
     <Compile Include="Factories\IBoardGameFactory.cs" />
     <Compile Include="Factories\IPersonFactory.cs" />
-    <Compile Include="Installers\DomainInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IBoardGameRepository.cs" />
     <Compile Include="Repositories\IPersonRepository.cs" />
+    <Compile Include="Services\BoardGameImageFetchService.cs" />
+    <Compile Include="Services\BoardGameImages.cs" />
+    <Compile Include="Services\IBoardGameImageFetchService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoardGameManager.EntityFramework\BoardGameManager.EntityFramework.csproj">

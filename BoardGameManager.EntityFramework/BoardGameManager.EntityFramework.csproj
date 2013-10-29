@@ -30,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -54,7 +48,7 @@
     <Compile Include="DbContexts\IContext.cs" />
     <Compile Include="Entities\BoardGame.cs" />
     <Compile Include="Entities\Person.cs" />
-    <Compile Include="Installers\EntityFrameworkInstaller.cs" />
+    <Compile Include="Enums\GameType.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Mappings\BoardGameMappings.cs" />
     <Compile Include="Mappings\PersonMappings.cs" />
@@ -62,9 +56,6 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
