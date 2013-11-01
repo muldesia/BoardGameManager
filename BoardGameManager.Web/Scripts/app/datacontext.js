@@ -3,9 +3,10 @@
 var boardGameManager = boardGameManager || {};
 
 boardGameManager.dataContext = (function() {
-    var EntitySet = function (getFunction, mapper) {
+    var EntitySet = function (entitySetName, getFunction, mapper) {
         var cachedModelItems = [],
             _getFunction = getFunction,
+
             copyModelItemsToResults = function (models, observableArray) {
                 if (!observableArray) {
                     throw 'copyModelItemsToResults() must be passed an observableArray as its second parameter.';
@@ -34,9 +35,7 @@ boardGameManager.dataContext = (function() {
                         getFunction({
                             success: function (dtoList) {
 
-                                if (localStorage) {
-                                    localStorage.setItem('boardGames', JSON.stringify(dtoList));
-                                }
+                                setInLocalStorage(dtoList);
 
                                 cachedModelItems = mapDtoToModel(dtoList, mapper);
                                 copyModelItemsToResults(cachedModelItems, results);
@@ -53,14 +52,16 @@ boardGameManager.dataContext = (function() {
                 }).promise();
             },
 
-            getCachedModelItems = function () {
-                if (cachedModelItems.length > 0) {
-                    return cachedModelItems;
+            setInLocalStorage = function (jsonObject) {
+                if (localStorage) {
+                    localStorage.setItem('EntitySet_' + entitySetName, JSON.stringify(jsonObject));
                 }
+            },
 
-                if (localStorage && localStorage.getItem('boardGames')) {
-                    if (localStorage.getItem('boardGames').length > 0) {
-                        var jsonObjectInLocalStorage = JSON.parse(window.localStorage.getItem('boardGames'));
+            getModelFromLocalStorage = function () {
+                if (localStorage && localStorage.getItem('EntitySet_' + entitySetName)) {
+                    if (localStorage.getItem('EntitySet_' + entitySetName).length > 0) {
+                        var jsonObjectInLocalStorage = JSON.parse(window.localStorage.getItem('EntitySet_' + entitySetName));
                         return mapDtoToModel(jsonObjectInLocalStorage, mapper)
                     }
                 }
@@ -68,13 +69,21 @@ boardGameManager.dataContext = (function() {
                 return null;
             },
 
+            getCachedModelItems = function () {
+                if (cachedModelItems.length > 0) {
+                    return cachedModelItems;
+                }
+                
+                return getModelFromLocalStorage();
+            },
+
             areModelItemsInCache = function () {
                 if (cachedModelItems.length > 0) {
                     return true;
                 }
 
-                if (localStorage && localStorage.getItem('boardGames')) {
-                    if (localStorage.getItem('boardGames').length > 0) {
+                if (localStorage && localStorage.getItem('EntitySet_' + entitySetName)) {
+                    if (localStorage.getItem('EntitySet_' + entitySetName).length > 0) {
                         return true;
                     }
                 }
@@ -99,7 +108,7 @@ boardGameManager.dataContext = (function() {
 
         },
 
-        BoardGames = new EntitySet(boardGameManager.dataService.boardGames.getBoardGames, boardGameManager.modelMapper.boardGames);
+        BoardGames = new EntitySet('boardGames', boardGameManager.dataService.boardGames.getBoardGames, boardGameManager.modelMapper.boardGames);
 
     return {
         boardGames: BoardGames
