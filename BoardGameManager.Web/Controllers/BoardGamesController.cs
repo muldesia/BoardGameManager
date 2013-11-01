@@ -49,7 +49,9 @@ namespace BoardGameManager.Web.Controllers
                 boardGameViewModel.BoardGameGeekMediumImageUri = boardGameImages.MediumBoardGameImage;
             });
 
-            return Request.CreateResponse<IEnumerable<BoardGameViewModel>>(HttpStatusCode.OK, boardGameViewModels);
+            var orderedBoardGameViewModels = boardGameViewModels.OrderBy(x => x.Name);
+
+            return Request.CreateResponse<IEnumerable<BoardGameViewModel>>(HttpStatusCode.OK, orderedBoardGameViewModels);
         }
     }
 }

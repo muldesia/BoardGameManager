@@ -45,7 +45,8 @@ boardGameManager.viewModel.boardGames = (function () {
 
         showBoardGameList = function () {
             $('#boardGameList').show('blind', {}, 500, function () {
-                $('#boardGameList ul').jScrollPane();
+                $('#boardGameList ul').jScrollPane({ mouseWheelSpeed: 60 });
+
             });
         },
 

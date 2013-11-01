@@ -23,10 +23,10 @@
 </article>
 <aside>
     <section id="selectedBoardGameDetails" data-bind="with: selectedGame">
-        <table>
-            <tr>
-                <td><img data-bind="attr: { src: boardGameGeekMediumImageUri }" /></td>
-            </tr>
+        <div id="selectedBoardGameImage">
+            <img data-bind="attr: { src: boardGameGeekMediumImageUri }" />
+        </div>
+        <table id="selectedBoardGameDetailsTable">
             <tr>
                 <td>Name</td><td data-bind="text: name"></td>
             </tr>
@@ -43,7 +43,7 @@
                 <td>Max Minutes To Play</td><td data-bind="text: maxMinutesToPlay"></td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td>
                     <a data-bind="attr: { href: boardGameGeekReviewUri }" target="_blank">Review</a>
                 </td>
             </tr>

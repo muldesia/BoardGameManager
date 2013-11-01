@@ -4,14 +4,14 @@ var boardGameManager = boardGameManager || {};
 
 boardGameManager.dataContext = (function() {
     var EntitySet = function (getFunction, mapper) {
-        var items = [],
+        var cachedModelItems = [],
             _getFunction = getFunction,
-            itemsToArray = function (items, observableArray) {
+            copyModelItemsToResults = function (models, observableArray) {
                 if (!observableArray) {
-                    throw 'itemsToArray() must be passed an observableArray as its second parameter.';
+                    throw 'copyModelItemsToResults() must be passed an observableArray as its second parameter.';
                 }
 
-                ko.utils.arrayPushAll(observableArray(), items);
+                ko.utils.arrayPushAll(observableArray(), models);
                 observableArray.valueHasMutated();
             },
 
@@ -21,30 +21,71 @@ boardGameManager.dataContext = (function() {
                         getFunctionOverride = options && options.getFunction,
                         getFunction = getFunctionOverride || _getFunction;
 
-                    if (!items.length) {
+                    var useCache = true;
+                    if (options && options.useCache) {
+                        useCache = options.useCache;
+                    }
+
+                    if (areModelItemsInCache() && useCache) {
+                        var modelItemsInCache = getCachedModelItems();
+                        copyModelItemsToResults(modelItemsInCache, results);
+                        def.resolve(results);
+                    } else {
                         getFunction({
                             success: function (dtoList) {
-                                items = mapToContext(dtoList, items, results, mapper);
+
+                                if (localStorage) {
+                                    localStorage.setItem('boardGames', JSON.stringify(dtoList));
+                                }
+
+                                cachedModelItems = mapDtoToModel(dtoList, mapper);
+                                copyModelItemsToResults(cachedModelItems, results);
+
                                 def.resolve(dtoList);
                             },
                             error: function (response) {
                                 console.error('Unable to load data into dataContext.');
-                                def.reject(); // ?
+                                def.reject();
                             }
                         });
-                    } else {
-                        itemsToArray(items, results);
-                        def.resolve(results);
                     }
+
                 }).promise();
             },
 
-            mapToContext = function (dtoList, items, results, mapper) {
-                items = _.map(dtoList, function (dto) {
+            getCachedModelItems = function () {
+                if (cachedModelItems.length > 0) {
+                    return cachedModelItems;
+                }
+
+                if (localStorage && localStorage.getItem('boardGames')) {
+                    if (localStorage.getItem('boardGames').length > 0) {
+                        var jsonObjectInLocalStorage = JSON.parse(window.localStorage.getItem('boardGames'));
+                        return mapDtoToModel(jsonObjectInLocalStorage, mapper)
+                    }
+                }
+
+                return null;
+            },
+
+            areModelItemsInCache = function () {
+                if (cachedModelItems.length > 0) {
+                    return true;
+                }
+
+                if (localStorage && localStorage.getItem('boardGames')) {
+                    if (localStorage.getItem('boardGames').length > 0) {
+                        return true;
+                    }
+                }
+
+                return false;
+            },
+
+            mapDtoToModel = function (dtoList, mapper) {
+                return _.map(dtoList, function (dto) {
                     return mapper.fromDto(dto);
                 }, []);
-                itemsToArray(items, results);
-                return items;
             },
 
             clearCache = function () {

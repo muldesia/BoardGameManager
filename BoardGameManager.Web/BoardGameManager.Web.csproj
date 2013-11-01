@@ -235,6 +235,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\dataservice.boardgames.js" />
+    <None Include="Properties\PublishProfiles\boardgamemanager - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\boardgamemanager - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <None Include="Scripts\amplify-vsdoc.js" />
     <Content Include="Scripts\amplify.js" />

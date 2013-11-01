@@ -106,6 +106,10 @@ body {
     width: 100%;
 }
 
+header {
+    margin-left: 5%;
+}
+
 h2 {
     color: #854D00;
     font-family: Trebuchet MS1, Trebuchet MS, sans-serif;
@@ -114,7 +118,8 @@ h2 {
 
 article {
     float: left;
-    width: 30%;
+    width: 20%;
+    margin-left: 5%;
 }
 
 #boardGameListWaitingIndicator {
@@ -142,12 +147,11 @@ article {
 
 
 #boardGameList ul {
-    height: 500px;
+    height: 520px;
     width: 100%;
     overflow: auto;
     border: 0.1em solid #854D00;
     padding: 0px;
-    margin-left: 10%;
     color: #854D00;
 }
 
@@ -176,6 +180,19 @@ article {
 aside {
     float: left;
     margin-left: 100px;
+}
+
+#selectedBoardGameImage {
+    float: left;
+    width: 210px;
+}
+
+#selectedBoardGameDetailsTable {
+    float: right;
+}
+
+#selectedBoardGameDetailsTable tbody tr td:nth-of-type(2) {
+    padding-left: 10px;
 }
 
 aside section {

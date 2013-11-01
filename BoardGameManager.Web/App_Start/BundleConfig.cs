@@ -53,10 +53,10 @@ namespace BoardGameManager.Web
                         "~/Scripts/jquery.jscrollpane.min.js"));
 
             bundles.Add(new ScriptBundle(BundlePaths.JavaScript.JQueryMouseWheel).Include(
-            "~/Scripts/jquery.mousewheel.js"));
+                        "~/Scripts/jquery.mousewheel.js"));
 
             bundles.Add(new ScriptBundle(BundlePaths.JavaScript.Main).Include(
-            "~/Scripts/main.js"));
+                        "~/Scripts/main.js"));
 
 
             bundles.Add(new StyleBundle(BundlePaths.Css.JQueryUi).Include(
@@ -74,13 +74,13 @@ namespace BoardGameManager.Web
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
             bundles.Add(new StyleBundle(BundlePaths.Css.Normalize).Include(
-                "~/Content/normalize.css"));
-
+                        "~/Content/normalize.css"));
+        
             bundles.Add(new StyleBundle(BundlePaths.Css.JQueryJScrollPane).Include(
-                "~/Content/jquery.jscrollpane.css"));
+                        "~/Content/jquery.jscrollpane.css"));
 
             bundles.Add(new StyleBundle(BundlePaths.Css.Main).Include(
-                "~/Content/main.css"));
+                        "~/Content/main.css"));
         }
     }
 }
