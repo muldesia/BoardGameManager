@@ -12,6 +12,7 @@ boardGameManager.dataContext = (function() {
                     throw 'copyModelItemsToResults() must be passed an observableArray as its second parameter.';
                 }
 
+                observableArray([]);
                 ko.utils.arrayPushAll(observableArray(), models);
                 observableArray.valueHasMutated();
             },
@@ -22,12 +23,7 @@ boardGameManager.dataContext = (function() {
                         getFunctionOverride = options && options.getFunction,
                         getFunction = getFunctionOverride || _getFunction;
 
-                    var useCache = true;
-                    if (options && options.useCache) {
-                        useCache = options.useCache;
-                    }
-
-                    if (areModelItemsInCache() && useCache) {
+                    if (areModelItemsInCache()) {
                         var modelItemsInCache = getCachedModelItems();
                         copyModelItemsToResults(modelItemsInCache, results);
                         def.resolve(results);
@@ -69,6 +65,12 @@ boardGameManager.dataContext = (function() {
                 return null;
             },
 
+            removeModelFromLocalStorage = function () {
+                if (localStorage && localStorage.getItem('EntitySet_' + entitySetName)) {
+                    localStorage.removeItem('EntitySet_' + entitySetName);
+                }
+            },
+
             getCachedModelItems = function () {
                 if (cachedModelItems.length > 0) {
                     return cachedModelItems;
@@ -97,13 +99,14 @@ boardGameManager.dataContext = (function() {
                 }, []);
             },
 
-            clearCache = function () {
-                items = [];
+            clearCaches = function () {
+                cachedModelItems = [];
+                removeModelFromLocalStorage();
             };
 
             return {
                 getData: getData,
-                clearCache: clearCache
+                clearCaches: clearCaches
             };
 
         },

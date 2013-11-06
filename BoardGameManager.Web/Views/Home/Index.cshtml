@@ -1,21 +1,42 @@
 ﻿@model dynamic
 
 <header>
-    <h2>Board Game Manager</h2>
+    <ul>
+        <li>
+            <h2>Board Game Manager</h2>
+        </li>
+        <li>
+            <a href="#" id="refreshCache" data-bind="event: { click: refreshCache }">refresh games list</a>
+        </li>
+    </ul>
 </header>
 <nav></nav>
 <article>
     <section>
         <div id="boardGameList">
+            
+            <label>Show games for how many players?</label>
+            <select id="numPlayers" data-bind="value: numberOfPlayers">
+               <option value = "Any">Any</option>
+               <option value = "1">1</option>
+               <option value = "2">2</option>
+               <option value = "3">3</option>
+               <option value = "4">4</option>
+               <option value = "5">5</option>
+               <option value = "6">6</option>
+               <option value = "7">7</option>
+               <option value = "8">8</option>
+               <option value = "9">9</option>
+               <option value = "10">10</option>
+               <option value = "11+">11+</option>
+            </select>
+
             <ul data-bind="foreach: boardGames">
-                <li data-bind="event: { mouseover: $parent.selectGame }">
+                <li data-bind="if: $parent.isGameInsideFilter($parent.numberOfPlayers(), minPlayers(), maxPlayers()), event: { mouseover: $parent.selectGame }">
                     <img data-bind="attr: { src: boardGameGeekSmallImageUri }" />
                     <span data-bind="text: name" />
                 </li>
             </ul>
-            <!--<select multiple="multiple" data-bind="foreach: boardGames">
-                <option data-bind="text: name, event: { mouseover: $parent.selectGame }" />
-            </select>-->
         </div>
         <span id="retryLoadBoardGamesMessage">Unable to load board games.  Please <a href="" id="retryLoadBoardGamesLink">retry</a>.</span>
         <div id="boardGameListWaitingIndicator"></div>

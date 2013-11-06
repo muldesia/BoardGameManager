@@ -80,7 +80,8 @@ namespace BoardGameManager.Application.DatabaseInitializers
                 new BoardGame("Mage Knight", 96848, GameType.BaseGame, 1, 4, "http://boardgamegeek.com/boardgame/96848", 60, 240),
                 new BoardGame("Starship Merchants", 114912, GameType.BaseGame, 2, 4, "http://boardgamegeek.com/boardgame/114912", 90, null), 
                 new BoardGame("The Resistance: Avalon", 128882, GameType.BaseGame, 5, 10, "http://boardgamegeek.com/boardgame/128882", 30, 30),
-                new BoardGame("Dominant Species", 62219, GameType.BaseGame, 2, 6, "http://boardgamegeek.com/boardgame/62219", 180, null)
+                new BoardGame("Dominant Species", 62219, GameType.BaseGame, 2, 6, "http://boardgamegeek.com/boardgame/62219", 180, null),
+                new BoardGame("Dominion: Prosperity", 66690, GameType.Expansion, 2, 4, "http://www.boardgamegeek.com/boardgameexpansion/66690/dominion-prosperity", 30, 30)
             };
 
             var markOMahoney = new Person("Mark O'Mahoney");
