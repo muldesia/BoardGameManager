@@ -11,64 +11,68 @@
     </ul>
 </header>
 <nav></nav>
-<article>
-    <section>
-        <div id="boardGameList">
-            
-            <label>Show games for how many players?</label>
-            <select id="numPlayers" data-bind="value: numberOfPlayers">
-               <option value = "Any">Any</option>
-               <option value = "1">1</option>
-               <option value = "2">2</option>
-               <option value = "3">3</option>
-               <option value = "4">4</option>
-               <option value = "5">5</option>
-               <option value = "6">6</option>
-               <option value = "7">7</option>
-               <option value = "8">8</option>
-               <option value = "9">9</option>
-               <option value = "10">10</option>
-               <option value = "11+">11+</option>
-            </select>
-
-            <ul data-bind="foreach: boardGames">
-                <li data-bind="if: $parent.isGameInsideFilter($parent.numberOfPlayers(), minPlayers(), maxPlayers()), event: { mouseover: $parent.selectGame }">
-                    <img data-bind="attr: { src: boardGameGeekSmallImageUri }" />
-                    <span data-bind="text: name" />
-                </li>
-            </ul>
-        </div>
-        <span id="retryLoadBoardGamesMessage">Unable to load board games.  Please <a href="" id="retryLoadBoardGamesLink">retry</a>.</span>
-        <div id="boardGameListWaitingIndicator"></div>
-    </section>
-</article>
-<aside>
-    <section id="selectedBoardGameDetails" data-bind="with: selectedGame">
-        <div id="selectedBoardGameImage">
-            <img data-bind="attr: { src: boardGameGeekMediumImageUri }" />
-        </div>
-        <table id="selectedBoardGameDetailsTable">
-            <tr>
-                <td>Name</td><td data-bind="text: name"></td>
-            </tr>
-            <tr>
-                <td>Min Players</td><td data-bind="text: minPlayers"></td>
-            </tr>
-            <tr>
-                <td>Max Players</td><td data-bind="text: maxPlayers"></td>
-            </tr>
-            <tr>
-                <td>Min Minutes To Play</td><td data-bind="text: minMinutesToPlay"></td>
-            </tr>
-            <tr>
-                <td>Max Minutes To Play</td><td data-bind="text: maxMinutesToPlay"></td>
-            </tr>
-            <tr>
-                <td>
-                    <a data-bind="attr: { href: boardGameGeekReviewUri }" target="_blank">Review</a>
-                </td>
-            </tr>
-        </table>
-    </section>
-</aside>
+<div id="contentContainer">
+    <div id="numPlayerFilter">
+        <label>Show games for how many players?</label>
+        <select id="numPlayers" data-bind="value: numberOfPlayers">
+            <option value = "Any">Any</option>
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+            <option value = "4">4</option>
+            <option value = "5">5</option>
+            <option value = "6">6</option>
+            <option value = "7">7</option>
+            <option value = "8">8</option>
+            <option value = "9">9</option>
+            <option value = "10">10</option>
+            <option value = "11+">11+</option>
+        </select>
+    </div>
+    <article>
+        <section>
+            <div id="boardGameList">
+                <ul data-bind="foreach: boardGames">
+                    <li data-bind="if: $parent.isGameInsideFilter($parent.numberOfPlayers(), minPlayers(), maxPlayers()), event: { mouseover: $parent.selectGame }">
+                        <img data-bind="attr: { src: boardGameGeekSmallImageUri }" />
+                        <span data-bind="text: name" />
+                    </li>
+                </ul>
+            </div>
+            <p id="retryLoadBoardGamesMessage">Unable to load board games.  Please <a href="" id="retryLoadBoardGamesLink">retry</a>.</p>
+            <div id="waitingIndicatorContainer">
+                <span id="boardGameListWaitingIndicator"></span><span id="boardGameListWaitingIndicatorText">Please wait, this may take a few minutes.</span>
+            </div>
+        </section>
+    </article>
+    <aside>
+        <section id="selectedBoardGameDetails" data-bind="with: selectedGame">
+            <div id="selectedBoardGameImage">
+                <img data-bind="attr: { src: boardGameGeekMediumImageUri }" />
+            </div>
+            <table id="selectedBoardGameDetailsTable">
+                <tr>
+                    <td>Name</td><td data-bind="text: name"></td>
+                </tr>
+                <tr>
+                    <td>Min Players</td><td data-bind="text: minPlayers"></td>
+                </tr>
+                <tr>
+                    <td>Max Players</td><td data-bind="text: maxPlayers"></td>
+                </tr>
+                <tr>
+                    <td>Min Minutes To Play</td><td data-bind="text: minMinutesToPlay"></td>
+                </tr>
+                <tr>
+                    <td>Max Minutes To Play</td><td data-bind="text: maxMinutesToPlay"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a data-bind="attr: { href: boardGameGeekReviewUri }" target="_blank">Review</a>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </aside>
+</div>
 <footer></footer>

@@ -65,11 +65,13 @@ boardGameManager.viewModel.boardGames = (function () {
         },
 
         showWaitingIndicator = function () {
+            $('#waitingIndicatorContainer').show();
             $('#boardGameListWaitingIndicator').activity({ align: 'left' });
         },
 
         hideWaitingIndicator = function () {
             $('#boardGameListWaitingIndicator').activity(false);
+            $('#waitingIndicatorContainer').hide();
         },
 
         showBoardGameList = function () {

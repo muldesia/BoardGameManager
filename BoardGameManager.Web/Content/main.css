@@ -107,17 +107,18 @@ body {
 }
 
 header {
-    margin-left: 5%;
+    margin-left: 50px;
+    margin-bottom: 5px;
+    min-width: 500px;
 }
 
 header ul {
     padding-left: 0px;
-    margin-bottom: 1%;
 }
 
 header ul li {
     display: inline;
-    margin-right: 3%;
+    margin-right: 6px;
 }
 
 header ul li h2 {
@@ -127,19 +128,39 @@ header ul li h2 {
     display: inline;
 }
 
+#contentContainer{
+    min-width: 1400px;
+    margin-left: 50px;
+}
+
 article {
+    margin: 0px;
     float: left;
-    width: 20%;
-    margin-left: 5%;
+    width: 400px;
+}
+
+#waitingIndicatorContainer{
+    margin-left: 10px;
+    margin-top: 40px;
 }
 
 #boardGameListWaitingIndicator {
-    margin-left: 10%;
-    margin-top: 5%;
+    float: left;
+}
+
+#boardGameListWaitingIndicatorText {
+    float: right;
+    margin-top: -10px;
+    width: 320px;
 }
 
 #boardGameList, #selectedBoardGameDetails, #retryLoadBoardGamesMessage {
     display: none;
+}
+
+select#numPlayers {
+    background: #F2E3CE;
+    color: #854D00;
 }
 
 #boardGameList .jspTrack
@@ -155,7 +176,6 @@ article {
     left: 0;
     cursor: pointer;
 }
-
 
 #boardGameList ul {
     height: 520px;
@@ -190,24 +210,31 @@ article {
 
 aside {
     float: left;
-    margin-left: 100px;
+    margin-left: 40px;
 }
 
 #selectedBoardGameImage {
     float: left;
     width: 210px;
+    margin-top: 9px;
 }
 
 #selectedBoardGameDetailsTable {
     float: right;
+    width: 400px;
+    margin-top: 7px;
 }
 
-#selectedBoardGameDetailsTable tbody tr td:nth-of-type(2) {
+#selectedBoardGameDetailsTable tbody tr td:nth-of-type(1) { /*label*/
+    width: 150px;
+}
+
+#selectedBoardGameDetailsTable tbody tr td:nth-of-type(2) { /*data*/
     padding-left: 10px;
 }
 
 aside section {
-    margin-top: 1em;
+    margin-top: 5px;
 }
 
 
