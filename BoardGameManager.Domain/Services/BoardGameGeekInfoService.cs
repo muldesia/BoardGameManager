@@ -13,9 +13,9 @@ using System.IO.Compression;
 
 namespace BoardGameManager.Domain.Services
 {
-    public class BoardGameImageFetchService : BoardGameManager.Domain.Services.IBoardGameImageFetchService
+    public class BoardGameGeekInfoService : BoardGameManager.Domain.Services.IBoardGameGeekInfoService
     {
-        public BoardGameImages GetBoardGameImages(Uri boardGameGeekReviewUrl)
+        public BoardGameGeekGameDetails GetBoardGameDetails(Uri boardGameGeekReviewUrl)
         {
             using (var httpClient = new HttpClient())
             {
@@ -55,22 +55,43 @@ namespace BoardGameManager.Domain.Services
                 var htmlDocument = new HtmlDocument();
                 htmlDocument.LoadHtml(responseHtmlAsString);
 
-                return GetBoardGameImageUrisFromHtml(htmlDocument);
+                var boardGameGeekGameDetails = new BoardGameGeekGameDetails();
+
+                PopulateBoardGameImageUrisFromHtml(htmlDocument, boardGameGeekGameDetails);
+                PopulateBoardGameDescriptionFromHtml(htmlDocument, boardGameGeekGameDetails);
+
+                return boardGameGeekGameDetails;
             }
         }
 
-        private static BoardGameImages GetBoardGameImageUrisFromHtml(HtmlDocument htmlDocument)
+        private static void PopulateBoardGameDescriptionFromHtml(HtmlDocument htmlDocument, BoardGameGeekGameDetails boardGameGeekGameDetails)
+        {
+            var divContainingDescription = htmlDocument.DocumentNode.SelectNodes("//div[@id = \"editdesc\"]")[0];
+
+            var hyperlinks = divContainingDescription.SelectNodes("//a");
+            foreach (var hyperlink in hyperlinks)
+            {
+                hyperlink.SetAttributeValue("target", "_blank");
+                var hyperlinkSourceAttribute = hyperlink.Attributes["href"];
+                if (hyperlinkSourceAttribute != null && hyperlinkSourceAttribute.Value != null && hyperlinkSourceAttribute.Value.StartsWith("/"))
+                {
+                    hyperlinkSourceAttribute.Value = "http://www.boardgamegeek.com" + hyperlinkSourceAttribute.Value;
+                }
+            }
+
+            boardGameGeekGameDetails.Description = divContainingDescription.InnerHtml;
+        }
+
+
+        private static void PopulateBoardGameImageUrisFromHtml(HtmlDocument htmlDocument, BoardGameGeekGameDetails boardGameGeekGameDetails)
         {
             var divContainingImage = htmlDocument.GetElementbyId("module_2");
             var imageElements = divContainingImage.SelectNodes(".//img");
             var boardGameImageElement = imageElements[0];
             var boardGameImageUrlAsString = boardGameImageElement.Attributes["src"].Value;
 
-            var boardGameImages = new BoardGameImages();
-            boardGameImages.MediumBoardGameImage =  new Uri(boardGameImageUrlAsString);
-
-            boardGameImages.SmallBoardGameImage = new Uri(boardGameImageUrlAsString.Replace("_t.jpg", "_sq.jpg"));
-            return boardGameImages;
+            boardGameGeekGameDetails.MediumBoardGameImage = new Uri(boardGameImageUrlAsString);
+            boardGameGeekGameDetails.SmallBoardGameImage = new Uri(boardGameImageUrlAsString.Replace("_t.jpg", "_sq.jpg"));
         }
 
         static byte[] Decompress(MemoryStream gzipMemoryStream)

@@ -12,6 +12,7 @@ boardGameManager.modelMapper = (function () {
                 item.boardGameGeekReviewUri(dto.boardGameGeekReviewUri);
                 item.boardGameGeekSmallImageUri(dto.boardGameGeekSmallImageUri);
                 item.boardGameGeekMediumImageUri(dto.boardGameGeekMediumImageUri);
+                item.boardGameGeekDescription(dto.boardGameGeekDescription);
                 item.minPlayers(dto.minPlayers);
                 item.maxPlayers(dto.maxPlayers);
                 item.minMinutesToPlay(dto.minMinutesToPlay);

@@ -18,14 +18,14 @@ namespace BoardGameManager.Web.Controllers
     public class BoardGamesController : ApiController
     {
         private readonly IBoardGameRepository _boardGameRepositroy;
-        private readonly IBoardGameImageFetchService _boardGameImageFetchService;
-        private readonly IBoardGameImageCacheService _boardGameImageCacheService;
+        private readonly IBoardGameGeekInfoService _boardGameGeekInfoService;
+        private readonly IBoardGameGeekInfoCacheService _boardGameGeekInfoCacheService;
 
-        public BoardGamesController(IBoardGameRepository boardGameRepositroy, IBoardGameImageFetchService boardGameImageFetchService, IBoardGameImageCacheService boardGameImageCacheService)
+        public BoardGamesController(IBoardGameRepository boardGameRepositroy, IBoardGameGeekInfoService boardGameGeekInfoService, IBoardGameGeekInfoCacheService boardGameGeekInfoCacheService)
         {
             _boardGameRepositroy = boardGameRepositroy;
-            _boardGameImageFetchService = boardGameImageFetchService;
-            _boardGameImageCacheService = boardGameImageCacheService;
+            _boardGameGeekInfoService = boardGameGeekInfoService;
+            _boardGameGeekInfoCacheService = boardGameGeekInfoCacheService;
         }
 
         //
@@ -38,15 +38,16 @@ namespace BoardGameManager.Web.Controllers
 
             Parallel.ForEach(boardGameViewModels, boardGameViewModel =>
             {
-                BoardGameImages boardGameImages;
-                if (!_boardGameImageCacheService.TryGetBoardGameImages(boardGameViewModel.BoardGameGeekReviewUri, out boardGameImages))
+                BoardGameGeekGameDetails boardGameGeekGameDetails;
+                if (!_boardGameGeekInfoCacheService.TryGetBoardGameImages(boardGameViewModel.BoardGameGeekReviewUri, out boardGameGeekGameDetails))
                 {
-                    boardGameImages = _boardGameImageFetchService.GetBoardGameImages(boardGameViewModel.BoardGameGeekReviewUri);
-                    _boardGameImageCacheService.AddBoardGameImagesToCache(boardGameViewModel.BoardGameGeekReviewUri, boardGameImages);
+                    boardGameGeekGameDetails = _boardGameGeekInfoService.GetBoardGameDetails(boardGameViewModel.BoardGameGeekReviewUri);
+                    _boardGameGeekInfoCacheService.AddBoardGameImagesToCache(boardGameViewModel.BoardGameGeekReviewUri, boardGameGeekGameDetails);
                 }
 
-                boardGameViewModel.BoardGameGeekSmallImageUri = boardGameImages.SmallBoardGameImage;
-                boardGameViewModel.BoardGameGeekMediumImageUri = boardGameImages.MediumBoardGameImage;
+                boardGameViewModel.BoardGameGeekSmallImageUri = boardGameGeekGameDetails.SmallBoardGameImage;
+                boardGameViewModel.BoardGameGeekMediumImageUri = boardGameGeekGameDetails.MediumBoardGameImage;
+                boardGameViewModel.BoardGameGeekDescription = boardGameGeekGameDetails.Description;
             });
 
             var orderedBoardGameViewModels = boardGameViewModels.OrderBy(x => x.Name);

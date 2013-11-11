@@ -7,6 +7,7 @@ using BoardGameManager.Application.DatabaseInitializers;
 using BoardGameManager.Web.App_Start;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
+using System;
 
 namespace BoardGameManager.Web
 {
@@ -32,7 +33,13 @@ namespace BoardGameManager.Web
 
             AutoMapperConfig.Configure();
 
-            Database.SetInitializer(new DropCreateBoardGameDatabaseInitializer());
+            Database.SetInitializer(new CreateBoardGameDatabaseIfNotExists());
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            System.Diagnostics.Trace.TraceError(exception.ToString());
         }
     }
 }

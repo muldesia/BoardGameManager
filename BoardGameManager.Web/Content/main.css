@@ -221,7 +221,7 @@ aside {
 
 #selectedBoardGameDetailsTable {
     float: right;
-    width: 400px;
+    width: 450px;
     margin-top: 7px;
 }
 
@@ -237,6 +237,10 @@ aside section {
     margin-top: 5px;
 }
 
+#boardGameDescription{
+    width: 450px;
+    display: inline;
+}
 
 
 /* ==========================================================================

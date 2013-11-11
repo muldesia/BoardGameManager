@@ -15,7 +15,7 @@ namespace BoardGameManager.Application.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-               Component.For<IBoardGameImageFetchService>().ImplementedBy<BoardGameImageFetchService>().LifeStyle.Transient);
+               Component.For<IBoardGameGeekInfoService>().ImplementedBy<BoardGameGeekInfoService>().LifeStyle.Transient);
         }
     }
 }

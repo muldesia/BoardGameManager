@@ -18,11 +18,11 @@ namespace BoardGameManager.Domain.Tests.Services
             public void Get_Image_Successfully()
             {
                 //Arrange
-                var boardGameImageFetchService = new BoardGameImageFetchService();
+                var boardGameImageFetchService = new BoardGameGeekInfoService();
                 var boardGameGeekReviewUrl = new Uri("http://boardgamegeek.com/boardgame/6472");
 
                 //Act
-                var imageUrls = boardGameImageFetchService.GetBoardGameImages(boardGameGeekReviewUrl);
+                var imageUrls = boardGameImageFetchService.GetBoardGameDetails(boardGameGeekReviewUrl);
 
                 //Assert
 

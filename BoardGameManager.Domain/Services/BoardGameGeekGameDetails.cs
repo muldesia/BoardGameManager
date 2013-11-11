@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace BoardGameManager.Domain.Services
 {
-    public class BoardGameImages
+    public class BoardGameGeekGameDetails
     {
         public Uri SmallBoardGameImage { get; set; }
 
         public Uri MediumBoardGameImage { get; set; }
+
+        public string Description { get; set; }
     }
 }

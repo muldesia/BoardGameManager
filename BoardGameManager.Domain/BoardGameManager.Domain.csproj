@@ -60,9 +60,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IBoardGameRepository.cs" />
     <Compile Include="Repositories\IPersonRepository.cs" />
-    <Compile Include="Services\BoardGameImageFetchService.cs" />
-    <Compile Include="Services\BoardGameImages.cs" />
-    <Compile Include="Services\IBoardGameImageFetchService.cs" />
+    <Compile Include="Services\BoardGameGeekInfoService.cs" />
+    <Compile Include="Services\BoardGameGeekGameDetails.cs" />
+    <Compile Include="Services\IBoardGameGeekInfoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoardGameManager.EntityFramework\BoardGameManager.EntityFramework.csproj">

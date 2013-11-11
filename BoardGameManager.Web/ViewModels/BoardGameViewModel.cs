@@ -26,6 +26,8 @@ namespace BoardGameManager.Web.ViewModels
 
         public Uri BoardGameGeekMediumImageUri { get; set; }
 
+        public string BoardGameGeekDescription { get; set; }
+
         public int? MinMinutesToPlay { get; set; }
 
         public int? MaxMinutesToPlay { get; set; }

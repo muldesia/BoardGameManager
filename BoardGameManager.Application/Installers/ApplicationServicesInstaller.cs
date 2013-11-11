@@ -15,7 +15,7 @@ namespace BoardGameManager.Application.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-               Component.For<IBoardGameImageCacheService>().ImplementedBy<BoardGameImageCacheService>().LifeStyle.Singleton);
+               Component.For<IBoardGameGeekInfoCacheService>().ImplementedBy<BoardGameGeekInfoCacheService>().LifeStyle.Singleton);
         }
     }
 }

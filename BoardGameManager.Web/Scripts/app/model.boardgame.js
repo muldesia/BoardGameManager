@@ -11,6 +11,7 @@ boardGameManager.model.BoardGame = function () {
     self.boardGameGeekReviewUri = ko.observable('Null');
     self.boardGameGeekSmallImageUri = ko.observable('Null');
     self.boardGameGeekMediumImageUri = ko.observable('Null');
+    self.boardGameGeekDescription = ko.observable('Null');
     self.gameType = ko.observable('Null');
     self.minPlayers = ko.observable(0);
     self.maxPlayers = ko.observable(0);

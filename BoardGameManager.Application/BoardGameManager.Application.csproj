@@ -91,14 +91,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseInitializers\CreateBoardGameDatabaseIfNotExists.cs" />
     <Compile Include="Installers\ApplicationServicesInstaller.cs" />
-    <Compile Include="Services\BoardGameImageCacheService.cs" />
+    <Compile Include="Services\BoardGameGeekInfoCacheService.cs" />
     <Compile Include="DatabaseInitializers\DropCreateBoardGameDatabaseInitializer.cs" />
     <Compile Include="Installers\DomainRepositoryInstaller.cs" />
     <Compile Include="Installers\DomainServicesInstaller.cs" />
     <Compile Include="Installers\EntityFrameworkInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IBoardGameImageCacheService.cs" />
+    <Compile Include="Services\IBoardGameGeekInfoCacheService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoardGameManager.Domain\BoardGameManager.Domain.csproj">

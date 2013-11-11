@@ -67,8 +67,15 @@
                     <td>Max Minutes To Play</td><td data-bind="text: maxMinutesToPlay"></td>
                 </tr>
                 <tr>
-                    <td>
-                        <a data-bind="attr: { href: boardGameGeekReviewUri }" target="_blank">Review</a>
+                    <td colspan="2">
+                        Read the full Board Game Geek review <a data-bind="attr: { href: boardGameGeekReviewUri }" target="_blank">here</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h4>Board Game Geek Description:</h4>
+                        <div id="boardGameDescription" data-bind="html: boardGameGeekDescription">
+                        </div>
                     </td>
                 </tr>
             </table>
